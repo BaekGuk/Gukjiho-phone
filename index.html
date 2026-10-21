@@ -1472,7 +1472,7 @@ kRoom=function(ty){var h='';kc.m.forEach(function(m,i){var p=kc.m[i-1];
   if(c&&c.n===HYUNG&&/사랑해/.test(tt)){_ks(x);setTimeout(function(){window.NEXTCALL=window.LOVE;ringOn()},2500);return}
   if(c&&c.n===HYUNG&&/보\s*고\s*싶|보구\s*싶|보고시퍼|보고파/.test(tt)){_ks(x);setTimeout(function(){push(c,'응 나도 보고 싶어 지호야',tmf(new Date()))},1800);return}
   if(c&&c.n===HYUNG&&tt.indexOf("형")<0&&(/백\s*해\s*견/.test(tt)||/^(해견아|해견|해견이)$/.test(tt.replace(/[\s.,!?~ㅋㅎㅠㅜ…]/g,"")))){_ks(x);setTimeout(function(){push(c,'지호 씨 지금 어디야?',tmf(new Date()))},1600);setTimeout(function(){push(c,'술 마셨어?',tmf(new Date()))},3000);return}
-  if(c&&c.n===HYUNG&&tt.replace(/\s/g,'')==='남친갔어와도대'){_ks(x);setTimeout(function(){push(c,'국아',tmf(new Date()))},1600);setTimeout(function(){push(c,'아직 집이지?ㅎㅎ',tmf(new Date()))},3000);return}
+  if(c&&c.n===HYUNG&&/^남친갔어와두돼$/.test(tt.replace(/\s/g,''))){_ks(x);setTimeout(function(){push(c,'국아',tmf(new Date()))},1600);setTimeout(function(){push(c,'아직 집이지?ㅎㅎ',tmf(new Date()))},3000);return}
   if(c&&c.n===HYUNG&&/사랑해/.test(tt)){_ks(x);setTimeout(function(){window.NEXTCALL=window.LOVE;ringOn()},2500);return}
   _ks(x)};
 })();
@@ -2695,5 +2695,10 @@ var _ec16=endCall;endCall=function(){_ec16();setTimeout(function(){infNm(window.
  $('lt').insertAdjacentElement('afterend',w)})();
 /* 메시지 앱: 옛날 호칭 '해견이 형' */
 (function(){var H=CVS.filter(function(c){return c.n===HYUNG})[0];if(!H)return;H.n='해견이 형';H.ini='해';try{renderList()}catch(e){}})();
+/* 형 카톡에 '선배'/'선배님' → 형한테 전화 */
+window.SENPAI=[[HYUNG,'ㅎㅎ 국실장.'],[HYUNG,'옛날이 그립나 봐?'],['국지호','아, 형.'],['국지호','그런 거 아닌 거 아시잖습니까.'],[HYUNG,'어, 그래.'],[HYUNG,'이따 봅시다, 국지호 후배님?']];
+(function(){var _k=kSend;kSend=function(x,auto){var c=kc,tt=(x||'').replace(/[\s.,!?~ㅋㅎㅠㅜ…]/g,'');
+ if(!auto&&c&&c.n===HYUNG&&/^선배(님)?$/.test(tt)&&!rgOn&&!$('cs').classList.contains('on')){_k(x);setTimeout(function(){window.NEXTCALL=window.SENPAI;ringOn()},2500);return}
+ return _k(x,auto)}})();
 
 </script></body></html>
