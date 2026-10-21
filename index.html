@@ -1776,7 +1776,7 @@ INIT.mail=function(){$('ml_dt').classList.remove('on');mlRender();$('ml_sc').scr
 var CAP2='띠링! 올림픽 금메달리스트 유도 국가대표 국지호의 핸드폰에 전화가 왔습니다!';
 RT='도입음';
 Object.defineProperty(SP,'tone',{configurable:true,get:function(){return {t:'벨소리',g:['벨소리',[[0,'도입음 (기본 설정)','','tone','도입음'],[0,'음성 녹음 001','','tone','음성 녹음 001'],[0,'레이디언트','','tone','레이디언트'],[0,'선셋','','tone','선셋']]]}}});
-playTone=function(){if(RT==='음성 녹음 001'){ding();setTimeout(function(){try{var u=new SpeechSynthesisUtterance(CAP2.replace('띠링! ',''));u.lang='ko-KR';u.rate=1.05;var v=speechSynthesis.getVoices().filter(function(x){return x.lang&&x.lang.replace('_','-').indexOf('ko')===0})[0];if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}},650);capEl.textContent=CAP2;capEl.style.opacity=1;clearTimeout(capT);capT=setTimeout(function(){capEl.style.opacity=0},6500)}else opening(TM[RT])};
+playTone=function(){if(RT==='음성 녹음 001'){ding();capEl.textContent=CAP2;capEl.style.opacity=1;clearTimeout(capT);capT=setTimeout(function(){capEl.style.opacity=0},6500)}else opening(TM[RT])};
 (function(){var _o=open;open=function(k,el){if(!el)el=document.querySelector('#home .ap[data-k="'+k+'"] .ic');if(el&&!el.getBoundingClientRect().width)el=null;if(!el&&FOLD[k])el=document.querySelector('#home .fold[data-f="'+FOLD[k]+'"] .ic');if(!el)el=$('hw');_o(k,el)}})();
 /* v3.1 layout: 노래 / 날씨 + 앱4 / 앱4 */
 FOLD={kics:'work',court:'work',mail:'work',clock:'util',set:'util'};FN.util=['유틸리티',['clock','set']];
